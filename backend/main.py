@@ -6,6 +6,8 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from extract import router as extract_router
+
 app = FastAPI(title="Handoff Ledger API")
 app.add_middleware(
     CORSMiddleware,
@@ -35,6 +37,7 @@ def init_db():
 
 
 init_db()
+app.include_router(extract_router)
 
 
 def redact(text):
