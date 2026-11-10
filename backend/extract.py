@@ -7,7 +7,7 @@ from fastapi import APIRouter, HTTPException, Body
 
 router = APIRouter()
 DB_FILE = "ledger.db"
- "MODEL = os.environ.get("GEMINI_MODEL", "gemini-1.5-flash")")
+MODEL = os.environ.get("GEMINI_MODEL", "gemini-1.5-flash")")
 
 SYSTEM = (
     "You extract handover claims from project notes. "
