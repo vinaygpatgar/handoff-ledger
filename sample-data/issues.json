@@ -1,0 +1,19 @@
+[
+  {
+    "id": "PR-14",
+    "title": "Add payment webhook",
+    "state": "open",
+    "author": "rohan",
+    "assignee": null,
+    "date": "2026-10-20",
+    "body": "Webhook works locally. Still needs retry handling. We should keep MongoDB for the webhook logs."
+  },
+  {
+    "id": "ISSUE-9",
+    "title": "Refund flow design",
+    "state": "open",
+    "author": "meera",
+    "date": "2026-10-15",
+    "body": "Client prefers manual refunds for now."
+  }
+]
