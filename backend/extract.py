@@ -56,14 +56,15 @@ def extract():
     by_id = {r["id"]: r["text"] for r in rows}
     data = "\n".join(f"[{r['id']}] {r['text']}" for r in rows)
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
+    # Pass key via query parameter which is standard for Google AI Studio
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent?key={key}"
     body = {
         "systemInstruction": {"parts": [{"text": SYSTEM}]},
         "contents": [{"role": "user", "parts": [{"text": data}]}],
         "generationConfig": {"responseMimeType": "application/json"},
     }
     try:
-        resp = requests.post(url, headers={"x-goog-api-key": key}, json=body, timeout=90)
+        resp = requests.post(url, json=body, timeout=90)
     except Exception as e:
         con.close()
         raise HTTPException(502, f"Could not reach Gemini: {e}")
